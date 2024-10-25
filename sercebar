@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Search Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #results {
+            margin-top: 20px;
+        }
+        .item {
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Search Fruits</h1>
+<input type="text" id="searchInput" placeholder="Search for fruits..." />
+
+<div id="results">
+    <div class="item">Apple</div>
+    <div class="item">Banana</div>
+    <div class="item">Orange</div>
+    <div class="item">aasim</div>
+    <div class="item">Pineapple</div>
+</div>
+
+<script>
+    const searchInput = document.getElementById('searchInput');
+    const items = document.querySelectorAll('.item');
+
+    searchInput.addEventListener('input', function() {
+        const searchValue = searchInput.value.toLowerCase();
+
+        items.forEach(item => {
+            const text = item.textContent.toLowerCase();
+            item.style.display = text.includes(searchValue) ? 'block' : 'none';
+        });
+    });
+</script>
+
+</body>
+</html>
